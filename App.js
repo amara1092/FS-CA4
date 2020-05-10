@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput ,ScrollView,FlatList} from 'react-native';
+import Header from './components/Header';
 
 export default function App (){
 const[name, setName] = useState('')
@@ -14,7 +15,7 @@ const [Response, setResponse] = useState('')
     ])
 const [list, setList] = useState
 ([
-  {name: 'shauwn', key: ' 1'},
+  {name:  'shauwn', key: ' 1'},
   { name: 'shauwn', key: '2' },
   { name: 'shauwn', key: '3' },
   { name: 'shauwn', key: '4' },
@@ -26,9 +27,7 @@ const [list, setList] = useState
     return (
       <View style = {styles.container}>
       <ScrollView>
-         <View style={styles.header}>
-            <Text style={styles.boldText}>Awge Presents....s</Text>
-          </View>
+        <Header/>
           <View style={styles.body}>
           <Text style={styles.boldText}>DrumRolls please ..... <Text>Our</Text> new App</Text>
           <Text style={styles.boldText}>Welcome to AWGE fashion Store now available on IOS and soon on the android</Text>
@@ -97,11 +96,6 @@ const styles = StyleSheet.create({
     //justifyContent: 'center',
   },
   
-  header:{
-    backgroundColor: 'silver',
-    padding: 20,
-  },
-
   boldText: {
     fontWeight:'bold',
   },
