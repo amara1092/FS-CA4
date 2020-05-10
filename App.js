@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput ,ScrollView,FlatList} from 'react-native';
 import Header from './components/Header';
-
+import Menus from './components/MenuList';
 export default function App (){
 const[name, setName] = useState('')
 const [Response, setResponse] = useState('')
@@ -13,6 +13,15 @@ const [Response, setResponse] = useState('')
       { text: 'Hoddies', key: '4' },
       { text: 'Bottoms', key: '5' },
     ])
+
+const pressHandler = (key) => {
+setMenu((prevMenu) => {
+  return prevMenu.filter(menu => menu.key != key);
+
+});
+
+}
+
 const [list, setList] = useState
 ([
   {name:  'shauwn', key: ' 1'},
@@ -51,13 +60,10 @@ const [list, setList] = useState
           {/*to form */}
 
           <View style={styles.list}> 
-          {/*LIST*/}
           <FlatList
           data={menu}
             renderItem={({item}) => (
-            <Text>
-              {item.text}
-            </Text> 
+           <Menus item={item} pressHandler={pressHandler} />
 
             )}
 
@@ -70,11 +76,11 @@ const [list, setList] = useState
         <Text>My name is:  <Text style={styles.boldText}>{name}</Text> and Have you heard of our website?:  <Text style={styles.boldText}>{Response}</Text></Text>
        
             <Text style={styles.boldText}>Here we have a list of users that use our Website</Text> 
-       { list.map((item)=> {
+       { list.map((items)=> {
             return (
-              <View key = {item.key}>
-                <Text style={styles.item}>
-                  {item.name}
+              <View key = {items.key}>
+                <Text style={styles.items}>
+                  {items.name}
                 </Text>
               </View> 
 
@@ -113,7 +119,7 @@ const styles = StyleSheet.create({
     
   },
   
-  item: {
+  items: {
     marginTop:24,
     padding:50,
     backgroundColor: 'silver',
