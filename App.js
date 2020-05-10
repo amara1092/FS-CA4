@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput ,ScrollView,FlatList} from 'react-native';
 import Header from './components/Header';
 import Menus from './components/MenuList';
+import AddTo from './components/addToList';
+
 export default function App (){
 const[name, setName] = useState('')
 const [Response, setResponse] = useState('')
@@ -12,15 +14,27 @@ const [Response, setResponse] = useState('')
       { text: 'Jackets', key: '3' },
       { text: 'Hoddies', key: '4' },
       { text: 'Bottoms', key: '5' },
-    ])
+    ]);
 
 const pressHandler = (key) => {
 setMenu((prevMenu) => {
   return prevMenu.filter(menu => menu.key != key);
 
 });
-
 }
+
+const submitHandler = (text) => {
+setMenu((prevMenu) => {
+return[
+{ text: text, key: Math.random().toString() },
+  ...prevMenu
+      ];
+
+})
+  }
+
+
+
 
 const [list, setList] = useState
 ([
@@ -44,21 +58,22 @@ const [list, setList] = useState
 
 
         <Text>Whats your name? </Text>
-        <TextInput 
-        style={styles.input}
+        <TextInput
+        style={styles.inputs}
           placeholder='e.g. Amara Uzoma'
           onChangeText={(val) => setName(val)}
         />
 
         <Text>Have you heard of our website? </Text>
         <TextInput
-          style={styles.input}
+          style={styles.inputs}
           placeholder='e.g. Yes or no'
           onChangeText={(val) => setResponse(val)}
         />
-          <View style={styles.content}> 
-          {/*to form */}
 
+          
+          <View style={styles.content}> 
+            <AddTo submitHandler={submitHandler} />
           <View style={styles.list}> 
           <FlatList
           data={menu}
@@ -110,7 +125,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'whitesmoke',
     margin: 25,
   },
-  input: {
+  inputs: {
     borderWidth: 1,
     borderColor: "#777",
     padding:15,
