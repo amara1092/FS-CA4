@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, TextInput ,ScrollView,FlatList} from 'react-nat
 import Header from './components/Header';
 import Menus from './components/MenuList';
 import AddTo from './components/addToList';
+import Navigator from './routes/homeStack';
 
 export default function App (){
 const[name, setName] = useState('')
@@ -49,6 +50,7 @@ const [list, setList] = useState
 
     return (
       <View style = {styles.container}>
+        <Navigator />
       <ScrollView>
         <Header/>
           <View style={styles.body}>
