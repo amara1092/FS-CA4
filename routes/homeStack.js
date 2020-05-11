@@ -5,15 +5,29 @@ import Shoes from '../screens/Shoes';
 
 const screens = {
 Home:{
-    screen: Home
+    screen: Home,
+    navigationOptions: {
+        title:'Welcome',
+        headerStyle: {backgroundColor: 'white'}
+    }
 },
 
 Shoes: {
-        screen: Shoes
+    screen: Shoes,
+    navigationOptions: {
+        title: 'Shoes',
+        headerStyle: { backgroundColor: '#555' }
+    }
     }
 
 }
 
-const HomeStack = createStackNavigator(screens);
+const HomeStack = createStackNavigator(screens , {
+ defaultNavigationOptions:{
+headerTintColor:"whitesmoke"
+
+ }
+
+});
 
 export default createAppContainer(HomeStack);
