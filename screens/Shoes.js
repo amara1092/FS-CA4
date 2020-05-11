@@ -6,7 +6,7 @@ import Card from '../shared/card';
 export default function Shoes({ navigation }) {
     return (
         <View>
-            <Text style={globalStyles.container}>Shoes</Text>
+            <Text style={globalStyles.container}>Reviews</Text>
             <Card>
             <Text>{ navigation.getParam('title') }</Text>
             <Text>{navigation.getParam('body')}</Text>
