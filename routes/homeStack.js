@@ -2,6 +2,7 @@ import{ createStackNavigator } from 'react-navigation-stack';
 import{ createAppContainer } from 'react-navigation';
 import Home from '../screens/home';
 import Shoes from '../screens/Shoes';
+
 const screens = {
 Home:{
     screen: Home
