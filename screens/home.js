@@ -49,30 +49,6 @@ export default function Home({ navigation }) {
 
 
 
-    const [lists, setLists] = useState
-        ([
-            { name: 'shauwn', key: ' 1' },
-            { name: 'shauwn', key: '2' },
-            { name: 'shauwn', key: '3' },
-            { name: 'shauwn', key: '4' },
-            { name: 'shauwn', key: '5' },
-            { name: 'shauwn', key: '6' },
-            { name: 'shauwn', key: '7' },
-        ]);
-
-
-
-    
-    const [list, setList] = useState
-        ([
-            { title: 'shauwn', rating: 5, body:'GreatApp',  key: ' 1' },
-            { title: 'shauwn', rating: 5, body: 'GreatApp', key: '2' },
-            { title: 'shauwn', rating: 5, body: 'GreatApp', key:'3' },
-            { title: 'shauwn', rating: 5, body: 'GreatApp', key: '4' },
-            { title: 'shauwn', rating: 5, body: 'GreatApp', key:'5' },
-            { title: 'shauwn', rating: 5, body: 'GreatApp', key: '6' },
-            { title: 'shauwn', rating: 5, body: 'GreatApp', key:'7' },
-        ]);
 
     
 return(
@@ -80,11 +56,6 @@ return(
 <ScrollView>
 <Carosel images={images} />
             <Header />
-            <View style={styles.body}>
-                <Text style={styles.boldText}>DrumRolls please ..... <Text>Our</Text> new App</Text>
-                <Text style={styles.boldText}>Welcome to AWGE fashion Store now available on IOS and soon on the android</Text>
-            </View>
-
             <Text>______________________________________________________</Text>
 
             <Text>Whats your name? </Text>
@@ -120,38 +91,9 @@ return(
                         renderItem={({ item }) => (
                             <Menus item={item} pressHandler={pressHandler} />
                         )}/>
-                    <Text>_________________________________________</Text>
-                    <View style={styles.body}>
-                        <Text style={styles.boldText}>Top 5 Reviews</Text>
-                        <Text> Theses are the hottest prodcts we have on sale on our websites  </Text>
-                    </View>
-                    <Text>_________________________________________</Text>
-                        <FlatList
-                        data={list}
-                        renderItem={({item}) => (
-                            <TouchableOpacity onPress={() => navigation.navigate('Shoes', item )}>
-                            <Card>
-                            <Text styles={globalStyles.titleText}>{ item.title }</Text>
-                            </Card>
-                            </TouchableOpacity>
-                        )}/>
-                </View>
+                   
+</View>
             </View>
-
-            <Text>My name is:  <Text style={styles.boldText}>{name}</Text> and Have you heard of our website?:  <Text style={styles.boldText}>{Response}</Text></Text>
-
-            <Text style={styles.boldText}>Here we have a list of users that use our Website</Text>
-            {lists.map((items) => {
-                return (
-                    <View key={items.key}>
-                        <Text style={styles.items}>
-                            {items.name}
-                        </Text>
-                    </View>
-
-                )
-            })}
-
      </ScrollView>
      
 </View>
@@ -178,7 +120,7 @@ return(
         },
         inputs: {
             borderWidth: 1,
-            borderColor: "#777",
+            borderColor: "black",
             padding: 15,
             margin: 20,
             width: 200,
@@ -188,7 +130,7 @@ return(
         items: {
             marginTop: 24,
             padding: 50,
-            backgroundColor: 'silver',
+            backgroundColor: 'white',
             fontSize: 24
 
         },
